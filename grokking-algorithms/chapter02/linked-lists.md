@@ -136,6 +136,8 @@ def delete(self, key):
 * move previous to current and then move current to next 
 * set head as previous 
 
+![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/RGIF2.gif)
+
 ### Code
 ```python
 def reverse(self):
