@@ -140,15 +140,20 @@ def delete(self, key):
 
 ### Code
 ```python
-def reverse(self):
-    previous = None
-    current = self.head 
-    
-    while current is not None:
-        next = current.next 
-        current.next = previous 
-        previous = current
-        current = next 
-    self.head = previous
-        
+def reverse_list(head):
+    new_head = None  # this is where we build the reversed list (reusing the existing nodes)
+    while head:
+        temp = head  # temp is a reference to a node we're moving from one list to the other
+        head = temp.next  # the first two assignments pop the node off the front of the list
+        temp.next = new_head  # the next two make it the new head of the reversed list
+        new_head = temp
+    return new_head       
+```
+more fancy:
+```python
+def reverse_list(head):
+    new_head = None
+    while head:
+        head.next, head, new_head = new_head, head.next, head 
+    return new_head
 ```
