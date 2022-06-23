@@ -129,31 +129,24 @@ def delete(self, key):
 
 ## Reverse
 ### Principle 
-* initialize 2 pointers: previous, current 
-* loop over linked list  
-* store next node (next as next of current)
-* reverse - change next of current to previous
-* move previous to current and then move current to next 
-* set head as previous 
-
-![](https://media.geeksforgeeks.org/wp-content/cdn-uploads/RGIF2.gif)
+* create a variable previous - at the beginning none
+* create a variable current node - head of the list  
+* move temp to the second place  
+* update current's pointer's value to previous -> here changing value 
+* assign the current as previous -> iteration 
+* assign the next one temp as current -> iteration 
 
 ### Code
 ```python
-def reverse_list(head):
-    new_head = None  # this is where we build the reversed list (reusing the existing nodes)
-    while head:
-        temp = head  # temp is a reference to a node we're moving from one list to the other
-        head = temp.next  # the first two assignments pop the node off the front of the list
-        temp.next = new_head  # the next two make it the new head of the reversed list
-        new_head = temp
-    return new_head       
-```
-more fancy:
-```python
-def reverse_list(head):
-    new_head = None
-    while head:
-        head.next, head, new_head = new_head, head.next, head 
-    return new_head
+def reverse(head):
+    current = head
+    previous = None
+
+    while current:
+        tmp = current.next        # set up the next one as temp 
+        current.next = previous   # changing values of the pointer to the next one!
+        previous = current        # iteration 
+        current = tmp             # iteration
+
+    head = previous
 ```
