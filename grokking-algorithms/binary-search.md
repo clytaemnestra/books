@@ -1,3 +1,28 @@
+## Pseudocode
+```
+A = sorted array 
+n = length of array 
+x = value to be searched 
+
+set low = 0
+set high = n - 1
+
+while x not found:
+    mid = high - low // 2
+    
+    if x = A[mid]   
+        EXIT: x found at location A[mid]
+       
+    if x > A[mid]
+        low = mid + 1
+       
+    if x < A[mid]
+        high = mid - 1 
+      
+end while
+```
+## Code
+```python
 def search(numbers_list, guess):
     low = 0
     high = len(numbers_list) - 1
@@ -18,3 +43,5 @@ def search(numbers_list, guess):
 
 
 search(numbers_list=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], guess=8)
+
+```
