@@ -9,6 +9,38 @@
 
 
 ### Pseudocode
+* pick any node (mostly root), visit a neighbour, mark it as visited, print it and insert it in a queue
+* remove the first vertex from the queue
+* repear 1 and 2 until the queue is empty or the desired node is found
 
 ### Code
+```python
+graph = {
+    'A': ['B', 'C'],
+    'B' : ['D', 'E'],
+    'C' : ['F'],
+    'D' : [],
+    'E' : ['F'],
+    'F' : []    
+}
+
+visited = [] # keep track of visited nodes
+queue= [] # initialize a queue to add neighbours
+
+def bfs(visited, graph, node):
+    visited.append(node)
+    queue.append(node)
+
+    while queue:
+        s = queue.pop(0) # first node in the queue
+        print(s, end = " ")
+
+        for neighbour in graph[s]:
+            if neighbour not in visited:
+                visited.append(neighbour)
+                queue.append(neighbour)
+
+# driver code
+bfs(visited, graph, 'A')
+```
 
