@@ -5,7 +5,8 @@
 * running time: O(V+E) - number of vertices + number of edges 
 * once you check an edge, make sure not to check it again - otherwise you might end up in an infinite loop
 
-insert pic 
+![image](https://user-images.githubusercontent.com/38294198/178215601-fa82ad9a-1315-49eb-9424-cc00dc81dd02.png)
+
 
 ### Pseudocode
 
