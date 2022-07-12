@@ -15,32 +15,23 @@
 
 ### Code
 ```python
-graph = {
-    'A': ['B', 'C'],
-    'B' : ['D', 'E'],
-    'C' : ['F'],
-    'D' : [],
-    'E' : ['F'],
-    'F' : []    
-}
+import collections
 
-visited = [] # keep track of visited nodes
-queue= [] # initialize a queue to add neighbours
-
-def bfs(visited, graph, node):
-    visited.append(node)
-    queue.append(node)
-
+def bfs(graph, root):
+    visited, queue = set([root]), collections.deque([root])
     while queue:
-        s = queue.pop(0) # first node in the queue
-        print(s, end = " ")
+        vertex = queue.popleft()
+        visit(vertex)
+        for node in graph[vertex]:
+            if node not in visited:
+                visited.add(node)
+                queue.append(node)
 
-        for neighbour in graph[s]:
-            if neighbour not in visited:
-                visited.append(neighbour)
-                queue.append(neighbour)
+def visit(n):
+    print(n)
 
-# driver code
-bfs(visited, graph, 'A')
+if __name__ == '__main__':
+    graph = {0: [1, 2], 1: [2, 0], 2: []} 
+    bfs(graph, 0)
 ```
 
